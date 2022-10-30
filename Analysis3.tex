@@ -10,6 +10,7 @@
 
 %% TODO: publish to CTAN
 \usepackage{tex/hsrstud}
+\usepackage{tex/docstyle}
 
 %% Language configuration
 \usepackage{polyglossia}
@@ -40,7 +41,7 @@
   % do not forget to add yourself!
 }
 
-\title{Analisys3 Notes}
+\title{Analysis 3 Notes}
 \date{\thesemester}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,8 +54,10 @@
 
 \maketitle
 
-% \begin{abstract}
-% \end{abstract}
+\begin{abstract}
+  These are my very unrigorous notes of the course Analysis 3 by Prof. Dr.
+  Iacobelli at ETH Zürich.
+\end{abstract}
 
 % show the names of the people who contributed to this document.
 % \section*{Contributors}
@@ -65,9 +68,19 @@
 
 \tableofcontents
 
+
 % actual content
 \clearpage
+\twocolumn 
 \setcounter{page}{1}
 \pagenumbering{arabic}
+
+\input{parts/cauchy}
+\input{parts/characters}
+\input{parts/conservation}
+
+\appendix
+
+\input{parts/ode}
 
 \end{document}

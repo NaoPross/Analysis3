@@ -1,0 +1,36 @@
+% vim: ts=2 sw=2 et tw=78:
+\section{PDE and Cauchy Problems}
+
+\begin{defn}[Linear PDE]
+  A PDE is \emph{linear} if it has the form
+  \[
+    a_0 u + \sum_{i} a_{1,i} u_{x_i}
+    + \sum_{i,j} a_{2,i,j} u_{x_i x_j}
+    + \cdots = f(\mathbf{x})
+  \]
+\end{defn}
+
+\begin{defn}[Quasilinear PDE]
+  A PDE is said to be \emph{quasilienar} if it is linear in its highet
+  derivatives.
+\end{defn}
+
+\begin{defn}[Strong or classical solution]
+  A solution to a PDE is said to beh \emph{strong} or classical if all
+  of its derivatives exist and are continuous.
+\end{defn}
+
+\begin{defn}[2D Cauchy problem]
+  \label{def:cauchy-2d}
+  In 2 dimensions a \emph{Cauchy problem} has the form
+  \begin{equation}
+    \label{eqn:cauchy-2d}
+    \begin{cases}
+      a u_x  + bu_y = c \\
+      u(x_0, y_0) = u_0(x_0, y_0)
+    \end{cases}
+  \end{equation}
+  where $a, b, c$ may be functions of $x, y$ and $u$.
+\end{defn}
+
+

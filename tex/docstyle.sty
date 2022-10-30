@@ -1,0 +1,24 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tex/docstyle}[2021/03/12 v0.1 Modifications to the style]
+
+% must be loaded before newtxmath
+% amssymb should not be loaded
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+
+%% Theorems
+\newtheoremstyle{ethzf} % name of the style to be used
+  {\topsep}
+  {\topsep}
+  {}
+  {0pt}
+  {\bfseries}
+  {.}
+  { }
+  { }
+
+\theoremstyle{ethzf}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{note}{Note}
