@@ -1,0 +1,56 @@
+% vim: ts=2 sw=2 et tw=78:
+
+\section{1D Wave Equation}
+
+The homogeneous one dimensional wave equation is a linear second order
+hyperbolic PDE:
+\[
+  u_{tt} - c^2 u_{xx} = 0
+  \qquad (x, t) \in \mathbb{R} \times (0, \infty),
+\]
+where $c$ is to be interpreted as being a ``velocity''. To get an algebraic
+intuition for the solution we can rewrite it as
+\[
+  (\partial_t - c\partial_x)(\partial_t + c\partial_x) u = 0,
+\]
+from which we can recognize the terms as transport equations and conclude that
+the solutione are a linear combination of forward or backwards traveling
+waves. The general solution to this problem can thus be written as
+\begin{equation} \label{eqn:wave:solution}
+  u(x,t) = p(\xi) + q(\eta)
+\end{equation}
+where the new variables are $\xi(x,t) = x + ct$ and $\eta(x,t) = x - ct$.
+Note that by performing the change of variables to $(\xi,\eta)$ the wave
+equation becomes $\partial^2 u /\partial\xi\partial\eta = 0$.
+
+\begin{defn}[Cauchy problem for the one dimensional wave equation]
+  \label{def:wave:cauchy}
+  \[
+    \begin{cases}
+      u_{tt} - c^2 u_{xx} = 0, & (x, t) \in \mathbb{R} \times (0, \infty), \\
+      u(x,0) = f(x), \\
+      u_t(x,0) = g(x).
+    \end{cases}
+  \]
+\end{defn}
+
+To solve the wave equation's Cauchy problem we assume that the has the form of 
+\eqref{eqn:wave:solution}, so the two conditions become $u(x,0) = p(x) + q(x)
+= f(x)$ and $\partial_t u(x,0) = p'(x) + q'(x) = f'(x) = g(x)$. Solving for
+$p(x)$ and $q(x)$ we get
+\begin{align*}
+  p(x) &= \frac{1}{2}f(x) - \frac{1}{2c}\int_0^x g(z) \, dz + a, \\
+  q(x) &= f(x) - p(x) = \frac{1}{2}f(x) + \frac{1}{2c} \int_0^x g(z) \, dz -a.
+\end{align*}
+By combining the two and adding back the time dependence we obtain
+d'Alambert's solution.
+\begin{thm}[D'Alambert's solution]
+  The solution to Cauchy problem of definition \ref{def:wave:cauchy} is given
+  by
+  \[
+    u(x,t) = \frac{f(x-ct) + f(x+ct)}{2} 
+      + \frac{1}{2c} \int_{x-ct}^{x+ct} g(z) \,dz.
+  \]
+\end{thm}
+
+
