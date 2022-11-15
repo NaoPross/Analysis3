@@ -1,6 +1,8 @@
-% vim: ts=2 sw=2 et tw=78:
+% vim: ts=2 sw=2 et tw=78 spell:
 
-\section{1D Wave Equation}
+\section{Wave Equation}
+
+\subsection{Homogeneous Case}
 
 The homogeneous one dimensional wave equation is a linear second order
 hyperbolic PDE:
@@ -19,9 +21,9 @@ waves. The general solution to this problem can thus be written as
 \begin{equation} \label{eqn:wave:solution}
   u(x,t) = p(\xi) + q(\eta)
 \end{equation}
-where the new variables are $\xi(x,t) = x + ct$ and $\eta(x,t) = x - ct$.
+where the new variables are $\xi(x,t) = x - ct$ and $\eta(x,t) = x + ct$.
 Note that by performing the change of variables to $(\xi,\eta)$ the wave
-equation becomes $\partial^2 u /\partial\xi\partial\eta = 0$.
+equation becomes $\partial_\xi \partial_\eta u = 0$.
 
 \begin{defn}[Cauchy problem for the one dimensional wave equation]
   \label{def:wave:cauchy}
@@ -36,14 +38,14 @@ equation becomes $\partial^2 u /\partial\xi\partial\eta = 0$.
 
 To solve the wave equation's Cauchy problem we assume that the has the form of 
 \eqref{eqn:wave:solution}, so the two conditions become $u(x,0) = p(x) + q(x)
-= f(x)$ and $\partial_t u(x,0) = p'(x) + q'(x) = f'(x) = g(x)$. Solving for
+= f(x)$ and $\partial_t u(x,0) = -c p'(x) + c q'(x) = g(x)$. Solving for
 $p(x)$ and $q(x)$ we get
 \begin{align*}
   p(x) &= \frac{1}{2}f(x) - \frac{1}{2c}\int_0^x g(z) \, dz + a, \\
-  q(x) &= f(x) - p(x) = \frac{1}{2}f(x) + \frac{1}{2c} \int_0^x g(z) \, dz -a.
+  q(x) &= f(x) - p(x) = \frac{1}{2}f(x) + \frac{1}{2c} \int_0^x g(z) \, dz -a,
 \end{align*}
-By combining the two and adding back the time dependence we obtain
-d'Alambert's solution.
+where $a$ is an integration constant. By combining the two and adding back the
+time dependence we obtain d'Alambert's solution.
 \begin{thm}[D'Alambert's solution]
   The solution to Cauchy problem of definition \ref{def:wave:cauchy} is given
   by
@@ -53,4 +55,58 @@ d'Alambert's solution.
   \]
 \end{thm}
 
+\subsection{Domain of influence and Characteristic Lines}
+
+By inspecting d'Alambert's solution we should note that the solution only
+depends on a wedge shaped region in the $(x,t)$ plane that starts at
+$(f(x),0)$ and expands in time. The initial datum is propagated only in this
+region between $x-ct$ and $x+ct$ that is known as the \emph{domain of
+influence}. The aforementioned lines are the \emph{characteristic lines} of
+the wave equation.
+
+\subsection{Inhomogeneous Case}
+
+In a more general setting the wave equation may be inhomogeneous, i.e. the
+Cauchy problem is as follows.
+
+\begin{defn}[Cauchy problem for the one dimensional inhomogeneous wave equation]
+  \label{def:wave:inhom-cauchy}
+  \[
+    \begin{cases}
+      u_{tt} =  c^2 u_{xx} + F(x,t), 
+        & (x, t) \in\mathbb{R} \times (0, \infty), \\
+      u(x,0) = 0, \\
+      u_t(x,0) = 0.
+    \end{cases}
+  \]
+\end{defn}
+
+The initial conditions are set to zero for an easier solution, and their
+effect can be added back later using superposition. To solve this case we also
+use the change of coordinates to $(\xi,\eta) = (x-ct, x+tc)$. By the chain
+rule the wave equation becomes
+\[
+  \frac{\partial^2 u}{\partial \xi \partial \eta}
+  = -\frac{1}{4c^2} F\left(\frac{\eta - \xi}{2c}, \frac{\eta + \xi}{2c}\right).
+\]
+Integrating and using the fact that $\partial_\xi u(\xi,\xi) = 0$ because of
+the zero initial conditions results in a double integral. After a change of
+variables and making use of the superposition to add this solution to
+d'Alambert's solution we obtain the following result.
+
+\begin{thm}[D'Alambert's solution for the inhomogeneous wave equation]
+  The solution to the general Cauchy problem of the inhomogeneous wave
+  equation is given by
+  \begin{align*}
+    u(x,t) = &\frac{f(x-ct) + f(x+ct)}{2} 
+      + \frac{1}{2c} \int_{x-ct}^{x+ct} g(z) \,dz \\
+      &\quad + \frac{1}{2c}
+        \int_0^t \int_{x+c(t-\tau)}^{x+c(t+\tau)} F(y, \tau) \, dy d\tau.
+  \end{align*}
+\end{thm}
+
+A important observation is that the (double) integral is over a triangular
+region $\Delta = \{ (y,\tau) : x - c(t - \tau) \leq y \leq c + c(t - \tau), 0
+\leq \tau \leq t\}$ that is known as the \emph{domain of depence} of the wave
+equation, since only the values in $F(\Delta)$ affect the solution.
 

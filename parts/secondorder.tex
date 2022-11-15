@@ -1,0 +1,22 @@
+% vim: ts=2 sw=2 et tw=78 spell:
+\section{Second Order PDEs}
+
+A second order PDE of two variables has in the most general case the form
+\[
+  Au_{tt} + Bu_{tx} + Cu_{xx} + Du_{t} + Eu_x + Fu = G.
+\]
+To classify them we define the \emph{discriminant}
+\[
+  \Delta = B^2 - 4AC,
+\]
+which is reminiscent of the quadratic equation. Now, the PDE is said to be
+\begin{itemize}
+  \item \emph{hyperbolic} if $\Delta(x,t) > 0$,
+  \item \emph{parabolic} if $\Delta(x,t) = 0$ and $A^2 + B^2 + C^2 \neq 0$,
+  \item \emph{elliptic} if $\Delta(x,t) < 0$,
+  \item \emph{singular} if $A = B = C = 0$.
+\end{itemize}
+It is important to note that since the parameters may be function of $(x,t)$,
+so is $\Delta(x,t)$ and the PDE may be different depending on where we are in
+the domain. Some well known examples: the wave equation is hyperbolic, the
+heat equation is parabolic and the Laplace equation is elliptic.
