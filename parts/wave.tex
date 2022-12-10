@@ -16,7 +16,7 @@ intuition for the solution we can rewrite it as
   (\partial_t - c\partial_x)(\partial_t + c\partial_x) u = 0,
 \]
 from which we can recognize the terms as transport equations and conclude that
-the solutione are a linear combination of forward or backwards traveling
+the solution are a linear combination of forward or backwards traveling
 waves. The general solution to this problem can thus be written as
 \begin{equation} \label{eqn:wave:solution}
   u(x,t) = p(\xi) + q(\eta)
@@ -110,3 +110,34 @@ region $\Delta = \{ (y,\tau) : x - c(t - \tau) \leq y \leq c + c(t - \tau), 0
 \leq \tau \leq t\}$ that is known as the \emph{domain of depence} of the wave
 equation, since only the values in $F(\Delta)$ affect the solution.
 
+\begin{thm}[Uniqueness]
+  The Cauchy problem of definition \ref{def:wave:inhom-cauchy} for the
+  inhomogeneous wave equation has a unique solution.
+  \begin{proof}
+    Suppose $u_1$ and $u_2$ are distinct solution to the Cauchy problem of
+    definition \ref{def:wave:inhom-cauchy}. Let $w = u_2 - u_1$, which is also
+    a solution by linearity. Applying d'Alambert's formula we conclude that $w
+    = 0$ which implies that $u_2 = u_1$.
+  \end{proof}
+\end{thm}
+
+\subsection{Symmetries}
+
+The wave equation has the useful property that symmetries in the initial datum
+are preserved.
+
+\begin{thm}[Symmetries of the wave equation]
+  If for a Cauchy problem for the inhomogeneous wave equation of definition
+  \ref{def:wave:inhom-cauchy} the initial datum $f$, $g$ and the inhomogeneity
+  $F$ are even, odd or periodic in $x$, then the solution is also even, odd or
+  periodic.
+\end{thm}
+
+\begin{proof}[Sketch of proof]
+  Suppose $u$ is a solution to the Cauchy problem with even / odd / periodic
+  initial datum and inhomogeneity. Let $v(x,t) = u(-x,t)$ / $v(x,t) =
+  -u(-x,t)$ / $v(x,t) = u(x+T,t)$, then we show that $u = v$ by formulating
+  the Cauchy problem of $v$.
+\end{proof}
+
+This property is sometimes useful to remove an extra boundary condition.
